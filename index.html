@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Safety Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>INDUSTRIAL</h1>
+                <p>Integrated Solution. Proven Results.</p>
+                <div class="header-contact">
+                    <p>QUESTIONS? CALL <span>9642945344</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>A Complete Line of INDUSTRIAL SAFETY PRODUCTS</h2>
+                <div class="contact-form">
+                    <h3>Contact Us Today</h3>
+                    <form id="contact-form">
+                        <input type="text" name="first-name" placeholder="First Name">
+                        <input type="text" name="last-name" placeholder="Last Name">
+                        <input type="text" name="company-name" placeholder="Company Name">
+                        <input type="email" name="email" placeholder="Email">
+                        <input type="text" name="phone" placeholder="Phone">
+                        <textarea name="message" placeholder="Message"></textarea>
+                        <input type="hidden" name="verification_code" id="verification_code">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="info-box">
+                <h3>Innovations</h3>
+                <img src="/TASK - 5/indus1.jpeg" alt="">
+                <p>There are many variations of passages of Lorem Ipsum available, but majority have suffered alteration.</p>
+            </div>
+            <div class="info-box">
+                <h3>People & Culture</h3>
+                <img src="/TASK - 5/indus2.jpeg" alt="">
+                <p>There are many variations of passages of Lorem Ipsum available, but majority have suffered alteration.</p>
+            </div>
+            <div class="info-box">
+                <h3>Solutions at a Glance</h3>
+                <img src="/TASK - 5/inuds3.jpeg" alt="">
+                <p>There are many variations of passages of Lorem Ipsum available, but majority have suffered alteration.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <h2>A Little Bit About Us</h2>
+            <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+            <button class="learn-more">Learn More</button>
+        </div>
+    </section>
+
+
+    <section class="bottom-section">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="bottom-box-img" >
+                    <img src="/TASK - 5/indus1.jpeg" alt="">
+                </div>
+                <div class="bottom-box">
+                    <h3>Lorem ipsum dolor</h3>
+                    <img src="/TASK - 5/indus2.jpeg" alt="">
+                    <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition.</p>
+                </div>
+                <div class="bottom-box">
+                    <h3>Lorem ipsum dolor</h3>
+                    <img src="/TASK - 5/inuds3.jpeg" alt="">
+                    <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition.</p>
+                </div>
+                <div class="bottom-box-img">
+                    <img src="/TASK - 5/indus4.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright @ domainname.com . All Rights Reserved | Designed by: J.N.V. Sai Harshaaditya </p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init('YOUR_USER_ID');
+        })();
+    </script>
+    <script type="text/javascript">
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Generate a verification code
+            const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
+            document.getElementById('verification_code').value = verificationCode;
+
+            // Send the email
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function(response) {
+                    alert('Verification email sent! Please check your inbox.');
+                    // Show a prompt for the user to enter the verification code
+                    const userCode = prompt('Enter the verification code sent to your email:');
+                    if (userCode === verificationCode) {
+                        alert('Email verified successfully!');
+                        // Proceed with form submission or further processing
+                    } else {
+                        alert('Incorrect verification code.');
+                    }
+                }, function(error) {
+                    console.log('Failed to send email:', error);
+                    alert('Failed to send verification email. Please try again.');
+                });
+        });
+    </script>
+</body>
+</html>
